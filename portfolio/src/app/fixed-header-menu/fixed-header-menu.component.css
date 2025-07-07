@@ -1,0 +1,139 @@
+:host {
+  display: block;
+}
+
+.fixed-header {
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #6c142e;
+  color: white;
+  height: 1px;
+  z-index: 1000;
+  transition: height 1s ease-in, background-color 1.5s ease-in-out;
+  padding: 0 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border-bottom: 5px solid #6c142e;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+
+  position: relative;
+  transition-delay: 0.5s;
+}
+
+.fixed-header:hover {
+  height: 60px;
+  background-color: #111;
+  transition-delay: 0s;
+}
+
+nav {
+  transform: translateY(-100%);
+  transition: transform 1s ease-in-out;
+
+  overflow: hidden;
+  height: 100%;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transition-delay: 1s;
+}
+
+.fixed-header:hover nav {
+  transform: translateY(0);
+  transition-delay: 0s;
+}
+
+.fixed-header:hover .caret {
+  transform: rotate(180deg);
+}
+
+.mini-bar {
+  position: absolute;
+  bottom: -42px;
+  right: 0;
+  font-size: 20px;
+  color: white;
+  background-color: #6c142e;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+
+  padding: 5px 30px;
+}
+
+.caret {
+  display: inline-block;
+  transition: transform 1s;
+}
+
+.caret-wrapper {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 120px; /* spazio di base */
+  font-size: 20px;
+  font-weight: bold;
+  position: relative; /* serve per absolute dei before */
+}
+
+nav ul li {
+  position: relative; /* ognuno fa da parent per ::before */
+}
+
+nav ul li + li::before {
+  content: "";
+  position: absolute;
+  left: -60px; /* metà di gap */
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  background-color: #a9a9a9;
+  border-radius: 50%;
+}
+
+nav ul li a {
+  color: #a9a9a9;
+  text-decoration: none;
+}
+
+nav ul li a {
+  display: flex;
+  flex-direction: column;  /* ordine: sopra -> sotto */
+  align-items: center;
+  text-decoration: none;
+  color: #a9a9a9;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+nav ul li a:hover {
+  color: #ffffff;
+}
+
+nav ul li a .jp {
+  font-size: 12px;  /* più piccolo sotto */
+  font-family: 'Sawarabi Mincho', serif;  /* o il font JP */
+  line-height: 1;
+}

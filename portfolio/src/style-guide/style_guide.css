@@ -1,0 +1,83 @@
+/* Base Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Body */
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  background: #f9f9f9;
+  color: #333;
+  padding: 20px;
+}
+
+/* Headings */
+h1, h2 {
+  font-family: 'M PLUS 1p', serif;
+  margin-bottom: 16px;
+}
+
+/* Swatches */
+.swatches {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 40px;
+}
+.swatch {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  border: 1px solid #ccc;
+}
+.swatch::after {
+  content: attr(data-name) " " attr(data-hex);
+  position: absolute;
+  bottom: 4px;
+  left: 4px;
+  font-family: monospace;
+  font-size: 10px;
+  background: rgba(255,255,255,0.7);
+  padding: 2px 4px;
+}
+
+/* Typography Samples */
+.typography p {
+  margin: 16px 0;
+}
+.h1-sample {
+  font-family: 'M PLUS 1p', serif;
+  font-size: 4rem;
+}
+.h2-sample {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+.body-sample {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+.cta-sample {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.micro-sample {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.75rem;
+}
+
+/* Patterns List */
+.patterns ul {
+  list-style: disc inside;
+  font-size: 0.9rem;
+  margin-top: 8px;
+}
+.patterns li {
+  margin-bottom: 6px;
+}
